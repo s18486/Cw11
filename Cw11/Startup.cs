@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Cw11.Models;
+using Cw11.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -18,6 +19,7 @@ namespace Cw11
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IDbService, SqlDbService>();
             services.AddDbContext<CodeFirstContext>(options => {
                 options.UseSqlServer("Data Source = win - 3alsm9qls2n; Initial Catalog = CodeFirst; Integrated Security = True");
                 });
