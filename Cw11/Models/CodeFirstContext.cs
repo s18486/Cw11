@@ -41,7 +41,7 @@ namespace Cw11.Models
                 tmp.Add(new Prescription { IdPrescription = 1, Date = DateTime.Today, DueDate = DateTime.Today.AddDays(30), IdDoctor = 1, IdPatient = 1 });
                 tmp.Add(new Prescription { IdPrescription = 2, Date = DateTime.Today, DueDate = DateTime.Today.AddDays(30), IdDoctor = 2, IdPatient = 2 });
                 tmp.Add(new Prescription { IdPrescription = 3, Date = DateTime.Today, DueDate = DateTime.Today.AddDays(30), IdDoctor = 3, IdPatient = 3 });
-                entity.HasData(tmp)
+                entity.HasData(tmp);
             });
 
             modelBuilder.Entity<PrescriptionMedicament>(entity =>
@@ -54,9 +54,9 @@ namespace Cw11.Models
                 entity.HasOne(e => e.Medicament).WithMany(p => p.PrescriptionMedicaments).HasForeignKey(d => d.IdMedicament).OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("PrescriptionMedicament_Medicament");
 
                 var tmp = new List<PrescriptionMedicament>();
-                tmp.Add(new PrescriptionMedicament { IdPrescription = 1, IdMedicament = 1, Details = "some details1", Dose = 1 });
-                tmp.Add(new PrescriptionMedicament { IdPrescription = 2, IdMedicament = 2, Details = "some details2", Dose = 2 });
-                tmp.Add(new PrescriptionMedicament { IdPrescription = 3, IdMedicament = 3, Details = "some details3", Dose = 3 });
+                tmp.Add(new PrescriptionMedicament {IdPresMed = 1, IdPrescription = 1, IdMedicament = 1, Details = "some details1", Dose = 1 });
+                tmp.Add(new PrescriptionMedicament {IdPresMed = 2, IdPrescription = 2, IdMedicament = 2, Details = "some details2", Dose = 2 });
+                tmp.Add(new PrescriptionMedicament {IdPresMed = 3, IdPrescription = 3, IdMedicament = 3, Details = "some details3", Dose = 3 });
                 entity.HasData(tmp);
             });
 

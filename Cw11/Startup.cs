@@ -21,7 +21,7 @@ namespace Cw11
         {
             services.AddScoped<IDbService, SqlDbService>();
             services.AddDbContext<CodeFirstContext>(options => {
-                options.UseSqlServer("Data Source = win - 3alsm9qls2n; Initial Catalog = CodeFirst; Integrated Security = True");
+                options.UseSqlServer("Data Source = win-3alsm9qls2n; Initial Catalog = CodeFirst; Integrated Security = True");
                 });
             services.AddControllers();
         }
